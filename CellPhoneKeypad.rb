@@ -10,7 +10,6 @@ class CellPhoneKeypad
 			row = []
 			
 			for j in 0..2
-							
 
 				cell = {'letters' => [], 'number' => numbersList[i]}
 				for k in 0..lettersList[i].length-1
@@ -27,7 +26,7 @@ class CellPhoneKeypad
 
 	public
 
-	def getCell(char)
+	def getCellFromCharacter(char)
 	
 		cell  = {}
 		if char.is_a?(Fixnum)
@@ -36,23 +35,35 @@ class CellPhoneKeypad
 				cell['x'] = 2
 				cell['y'] = 3
 			else
-				cell['x'] = char % @keypad[0].length
-				cell['y'] = char / @keypad[0].length
+				cell['x'] = (char - 1) % 3 
+				cell['y'] = (char - 1) / 3
 			end
 			cell
 		elsif char.is_a?(String)
-
+			
 		end
 	
 	end
 
 
 
-	def calculateTimeToTravelToCell(destinyCell)
+	def calculateTimeToTravelToCell(dstCell)
 
-		# A = []
-		# c = []
-		#	
+
+		openList = []
+		closedList = []
+
+		openList.push dstCell
+
+
+		if openList[0] != dstCell
+			openList[0]
+		end
+
+
+		
+
+
 		#	A.push initialCell + heuristic
 		#
 		#	while A[0] != destinationCell
