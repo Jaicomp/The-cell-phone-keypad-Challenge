@@ -53,16 +53,14 @@ class CellPhoneKeypad
 		openList = []
 		closedList = []
 
-		openList.push dstCell
-
+		openList.push @initialCell
+		
 
 		if openList[0] != dstCell
 			openList[0]
 		end
 
-
 		
-
 
 		#	A.push initialCell + heuristic
 		#
