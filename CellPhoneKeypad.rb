@@ -47,8 +47,9 @@ class CellPhoneKeypad
 
 
 
-	def calculateTimeToTravelToCell(dstCell)
+	def calculateTimeToTravelToCell(srcCell, dstCell)
 
+		pathSrcToDst = []
 
 		openList = []
 		closedList = []
@@ -60,6 +61,7 @@ class CellPhoneKeypad
 			openList[0]
 		end
 
+		puts "OKI"
 		
 
 		#	A.push initialCell + heuristic
