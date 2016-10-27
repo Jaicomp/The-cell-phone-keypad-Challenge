@@ -56,13 +56,11 @@ class Board
 			openList.shift
 			
 			for i in 0..moveX.length-1
-
-				newXCellPosition = closedList[0]['x'] + moveX[i]
-				newYCellPosition = closedList[0]['y'] + moveY[i]
-	
-				if isInsideBoardRank({'x' => newXCellPosition, 'y' => newYCellPosition}) && !isInsideList({'x' => newXCellPosition, 'y' => newYCellPosition}, closedList)
-					cell = {'x' => (closedList[0]['x']+moveX[i]), 'y' => (closedList[0]['y']+moveY[i])}
-					openList.push cell
+			
+				newCell = {'x' => (closedList[0]['x'] + moveX[i]), 'y' => (closedList[0]['y'] + moveY[i])}
+				
+				if isInsideBoardRank(newCell) && !isInsideList(newCell, closedList)			
+					openList.push newCell
 				end
 
 			end
@@ -98,13 +96,13 @@ class Board
 	end
 
 	def sortListOfCellsByHeuristic(list, dstCell)
-		calculateHeuristic(list[0], dstCell)
+		#puts "oki"
+		#calculateHeuristic(list[0], dstCell)
 
 	end
 
 	def calculateHeuristic(srcCell, dstCell)
-		print "--------------\n", srcCell, " - ", dstCell, " \n--------------\n"
-		
+		return (srcCell['x'] - dstCell['x']).abs.ceil + (srcCell['y'] -dstCell['y']).abs.ceil	
 
 	end
 
